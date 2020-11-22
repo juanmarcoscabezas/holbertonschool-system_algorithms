@@ -1,9 +1,9 @@
 #ifndef HEADER_FILE
 #define  HEADER_FILE
 
-#include <malloc.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-#include <limits.h>
 
 /**
  * enum edge_type_e - Enumerates the different types of
