@@ -4,7 +4,6 @@
 #include <malloc.h>
 #include <string.h>
 #include <limits.h>
-#include <stdlib.h>
 
 /**
  * enum edge_type_e - Enumerates the different types of
