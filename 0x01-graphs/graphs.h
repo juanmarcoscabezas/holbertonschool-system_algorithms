@@ -1,5 +1,5 @@
-#ifndef HEADER_GRAP
-#define  HEADER_GRAP
+#ifndef HEADER_FILE
+#define  HEADER_FILE
 
 #include <malloc.h>
 #include <string.h>
