@@ -1,5 +1,5 @@
 #ifndef HEADER_FILE
-#define  HEADER_FILE
+#define HEADER_FILE
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -70,4 +70,4 @@ typedef struct graph_s
 
 graph_t *graph_create(void);
 
-#endif
+#endif /* HEADER_FILE */
