@@ -5,13 +5,15 @@
  */
 graph_t *graph_create(void)
 {
-	graph_t *graph = NULL;
+	graph_t *newgraph = NULL;
 
-	graph = malloc(sizeof(graph_t));
+	newgraph = malloc(sizeof(graph_t));
 
-	if (graph == NULL)
+	if (newgraph == NULL)
 		return (NULL);
-	graph->nb_vertices = 0;
-	graph->vertices = NULL;
-	return (graph);
+
+	newgraph->nb_vertices = 0;
+	newgraph->vertices = NULL;
+
+	return (newgraph);
 }
