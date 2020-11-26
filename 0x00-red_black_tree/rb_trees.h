@@ -67,6 +67,6 @@ void fix_tree(rb_tree_t *node);
 rb_tree_t *_succesor(rb_tree_t *node);
 rb_tree_t *sValue(rb_tree_t *root, int n);
 void move_red(rb_tree_t *sibling, rb_tree_t *parent);
-// rb_tree_t *delete(rb_tree_t *node);
+/* rb_tree_t *delete(rb_tree_t *node); */
 
 #endif /* _RB_TREES_H_ */
