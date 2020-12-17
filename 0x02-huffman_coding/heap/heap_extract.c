@@ -8,7 +8,7 @@
 void heapify_out(heap_t *heap)
 {
 	binary_tree_node_t *node, *child;
-	
+
 	node = heap->root;
 	void *temp;
 
