@@ -3,7 +3,8 @@
 /**
 * remove_heap - Removes all
 * @root: pointer to the heap to delete
-* @free_data: pointer to a function that will be used to free the content of a node
+* @free_data: pointer to a function that will be
+* used to free the content of a node
 * Return:
 */
 void remove_heap(binary_tree_node_t *root, void (*free_data)(void *))
@@ -21,7 +22,8 @@ void remove_heap(binary_tree_node_t *root, void (*free_data)(void *))
 /**
  * heap_delete - deallocates a heap
  * @heap: pointer to the heap to delete
- * @free_data: pointer to a function that will be used to free the content of a node
+ * @free_data: pointer to a function that will be
+ * used to free the content of a node
  * Return:
  */
 void heap_delete(heap_t *heap, void (*free_data)(void *))
