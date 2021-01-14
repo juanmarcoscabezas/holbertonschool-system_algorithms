@@ -1,9 +1,16 @@
 #ifndef _PATHFINDING_
 #define _PATHFINDING_
 
+#include <stdlib.h>
+#include <stdio.h>
 #include "graphs.h"
 #include "queues.h"
-#include <stdlib.h>
+
+
+#define RIGHT {1, 0}
+#define BOTTOM {0, 1}
+#define LEFT {-1, 0}
+#define TOP {0, -1}
 
 /**
  * struct point_s - Structure storing coordinates
