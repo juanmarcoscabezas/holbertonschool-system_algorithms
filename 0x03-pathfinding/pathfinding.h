@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "graphs.h"
 #include "queues.h"
+#include "string.h"
 
 
 #define RIGHT {1, 0}
