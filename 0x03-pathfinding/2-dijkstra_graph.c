@@ -11,9 +11,9 @@ vertex_t *get_vertex_index(const graph_t *graph, size_t index)
 {
 	vertex_t *node;
 
-	if (index > graph->nb_vertices)
+	if (index > NBVERTICES)
 		return (NULL);
-	node = graph->vertices;
+	node = VERTICES;
 	if (node == NULL)
 		return (NULL);
 	while (node != NULL)
@@ -40,13 +40,13 @@ vertex_t *get_vertex_index(const graph_t *graph, size_t index)
  */
 size_t get_smallest(graph_t *graph, size_t *dest, size_t *v, size_t *index)
 {
-	size_t min = UINT_MAX;
+	size_t min = INFIN;
 	size_t *a = dest;
 	size_t i = 0;
 
 	while (i < graph->nb_vertices)
 	{
-		if (*a < min && v[i] == VISITED)
+		if (*a < min && v[i] == UNEXP)
 		{
 			min = *a;
 			*index = i;
@@ -80,8 +80,8 @@ void queue_charge(graph_t *graph, queue_t *queue, char **parent,
 		while (strcmp(parent[t], start->content))
 		{
 			queue_push_front(queue, strdup(parent[t]));
-			v = graph->vertices;
-			for (i = 0; i < graph->nb_vertices && v; i++)
+			v = VERTICES;
+			for (i = 0; i < NBVERTICES && v; i++)
 			{
 				if (strcmp(v->content, parent[t]) == 0)
 				{
@@ -110,7 +110,7 @@ void find_path(graph_t *graph, size_t *saw, char **parent,
 {
 	vertex_t *curr, *child;
 	edge_t *edge;
-	size_t smallest = UINT_MAX, alt;
+	size_t smallest = INFIN, alt;
 
 	curr = get_vertex_index(graph, index);
 	if (!curr)
@@ -118,7 +118,7 @@ void find_path(graph_t *graph, size_t *saw, char **parent,
 	edge = curr->edges;
 	printf("Checking %s, distance from %s is %ld\n", curr->content,
 	       start->content, dest[index]);
-	while (edge && saw[index] == VISITED)
+	while (edge && saw[index] == UNEXP)
 	{
 		child = edge->dest;
 		alt = dest[index] + edge->weight;
@@ -134,9 +134,9 @@ void find_path(graph_t *graph, size_t *saw, char **parent,
 		}
 		edge = edge->next;
 	}
-	saw[index] = VISITED;
+	saw[index] = EXP;
 	smallest = get_smallest(graph, dest, saw, &index);
-	if (saw[target->index] == VISITED || smallest == UINT_MAX)
+	if (saw[target->index] == EXP || smallest == INFIN)
 		return;
 
 	find_path(graph, saw, parent, dest, start, target,
@@ -168,8 +168,8 @@ queue_t *dijkstra_graph(graph_t *graph, vertex_t const *start,
 		dest = (size_t *) malloc(graph->nb_vertices * sizeof(size_t));
 		for (i = 0; i < graph->nb_vertices; i++)
 		{
-			dest[i] = UINT_MAX;
-			saw[i] = VISITED;
+			dest[i] = INFIN;
+			saw[i] = UNEXP;
 			parent[i] = NULL;
 		}
 		dest[start->index] = 0;

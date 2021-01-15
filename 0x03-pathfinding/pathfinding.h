@@ -13,7 +13,13 @@
 #define BOTTOM {0, 1}
 #define LEFT {-1, 0}
 #define TOP {0, -1}
-#define VISITED '1'
+
+#define UNEXP '0'
+#define EXP '1'
+#define TRACK '2'
+#define INFIN  UINT_MAX
+#define NBVERTICES graph->nb_vertices
+#define VERTICES graph->vertices
 
 /**
  * struct point_s - Structure storing coordinates
