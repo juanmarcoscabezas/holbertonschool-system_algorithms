@@ -6,6 +6,7 @@
 #include "graphs.h"
 #include "queues.h"
 #include "string.h"
+#include <limits.h>
 
 
 #define RIGHT {1, 0}
