@@ -13,6 +13,7 @@
 #define BOTTOM {0, 1}
 #define LEFT {-1, 0}
 #define TOP {0, -1}
+#define VISITED '1'
 
 /**
  * struct point_s - Structure storing coordinates

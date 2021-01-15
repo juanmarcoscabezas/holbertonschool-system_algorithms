@@ -46,7 +46,7 @@ size_t get_smallest(graph_t *graph, size_t *dest, size_t *v, size_t *index)
 
 	while (i < graph->nb_vertices)
 	{
-		if (*a < min && v[i] == 1)
+		if (*a < min && v[i] == VISITED)
 		{
 			min = *a;
 			*index = i;
@@ -118,7 +118,7 @@ void find_path(graph_t *graph, size_t *saw, char **parent,
 	edge = curr->edges;
 	printf("Checking %s, distance from %s is %ld\n", curr->content,
 	       start->content, dest[index]);
-	while (edge && saw[index] == 1)
+	while (edge && saw[index] == VISITED)
 	{
 		child = edge->dest;
 		alt = dest[index] + edge->weight;
@@ -134,9 +134,9 @@ void find_path(graph_t *graph, size_t *saw, char **parent,
 		}
 		edge = edge->next;
 	}
-	saw[index] = 1;
+	saw[index] = VISITED;
 	smallest = get_smallest(graph, dest, saw, &index);
-	if (saw[target->index] == 1 || smallest == UINT_MAX)
+	if (saw[target->index] == VISITED || smallest == UINT_MAX)
 		return;
 
 	find_path(graph, saw, parent, dest, start, target,
@@ -169,7 +169,7 @@ queue_t *dijkstra_graph(graph_t *graph, vertex_t const *start,
 		for (i = 0; i < graph->nb_vertices; i++)
 		{
 			dest[i] = UINT_MAX;
-			saw[i] = 1;
+			saw[i] = VISITED;
 			parent[i] = NULL;
 		}
 		dest[start->index] = 0;
