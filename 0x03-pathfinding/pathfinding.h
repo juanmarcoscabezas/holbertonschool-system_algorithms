@@ -7,6 +7,7 @@
 #include "queues.h"
 #include "string.h"
 #include <limits.h>
+#include <math.h>
 
 
 #define RIGHT {1, 0}
@@ -20,6 +21,7 @@
 #define INFIN  UINT_MAX
 #define NBVERTICES graph->nb_vertices
 #define VERTICES graph->vertices
+#define Euclidean_dist(x1, y1, x2, y2) sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
 
 /**
  * struct point_s - Structure storing coordinates
@@ -38,6 +40,8 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 queue_t *backtracking_graph(graph_t *graph, vertex_t const *start,
 	vertex_t const *target);
 queue_t *dijkstra_graph(graph_t *graph, vertex_t const *start,
+	vertex_t const *target);
+queue_t *a_star_graph(graph_t *graph, vertex_t const *start,
 	vertex_t const *target);
 
 #endif
